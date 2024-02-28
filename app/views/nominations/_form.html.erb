@@ -1,0 +1,52 @@
+<%= form_with(model: nomination) do |form| %>
+  <% if nomination.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(nomination.errors.count, "error") %> prohibited this nomination from being saved:</h2>
+
+      <ul>
+        <% nomination.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.text_field :type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :senderId %>
+    <%= form.number_field :senderId %>
+  </div>
+
+  <div class="field">
+    <%= form.label :senderName %>
+    <%= form.text_field :senderName %>
+  </div>
+
+  <div class="field">
+    <%= form.label :receiverId %>
+    <%= form.number_field :receiverId %>
+  </div>
+
+  <div class="field">
+    <%= form.label :receiverName %>
+    <%= form.text_field :receiverName %>
+  </div>
+
+  <div class="field">
+    <%= form.label :receiverImage %>
+    <%= form.text_field :receiverImage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_field :body %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  userId: 1
+  nomsSent: 1
+  nomsReceived: 1
+  mvpWins: 1
+
+two:
+  userId: 1
+  nomsSent: 1
+  nomsReceived: 1
+  mvpWins: 1
