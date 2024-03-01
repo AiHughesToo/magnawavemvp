@@ -1,7 +1,6 @@
 body {
-  background-color: #fff;
-  color: #333;
-  margin: 33px; }
+  background-color: rgb(239, 241, 244);
+  color: #333; }
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -63,3 +62,11 @@ div.actions {
 
 label {
   display: block; }
+  
+#nom-section {
+  display: flex;
+}
+#home-page-notifications{
+  background: #fff;
+  width: 80%;
+}

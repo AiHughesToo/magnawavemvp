@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_28_202414) do
+ActiveRecord::Schema.define(version: 2024_02_29_192853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "nominations", force: :cascade do |t|
-    t.string "type"
+    t.string "nom_type"
     t.integer "senderId"
     t.string "senderName"
-    t.integer "receiverId"
+    t.integer "user_id"
     t.string "receiverName"
     t.string "receiverImage"
     t.string "body"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2024_02_28_202414) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "accountType"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -1,9 +1,10 @@
 class NominationsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_nomination, only: %i[ show edit update destroy ]
 
   # GET /nominations or /nominations.json
   def index
-    @nominations = Nomination.all
+    @nominations = Nomination.all.order('created_at DESC')
   end
 
   # GET /nominations/1 or /nominations/1.json
@@ -21,7 +22,12 @@ class NominationsController < ApplicationController
 
   # POST /nominations or /nominations.json
   def create
+  
     @nomination = Nomination.new(nomination_params)
+    thisUser = User.find_by(fName: params[:receiverName])
+    @nomination.user_id = thisUser.id
+    @nomination.senderId = current_user.id
+    @nomination.senderName = current_user.fName
 
     respond_to do |format|
       if @nomination.save
@@ -65,6 +71,6 @@ class NominationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def nomination_params
-      params.require(:nomination).permit(:type, :senderId, :senderName, :receiverId, :receiverName, :receiverImage, :body)
+      params.require(:nomination).permit(:nom_type, :senderId, :senderName, :user_id, :receiverName, :receiverImage, :body)
     end
 end

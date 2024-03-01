@@ -1,39 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Nominations</h1>
+<!-- ======= Nomination Section ======= -->
+<section id="nom" class="nom-section">
 
-<table>
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Senderid</th>
-      <th>Sendername</th>
-      <th>Receiverid</th>
-      <th>Receivername</th>
-      <th>Receiverimage</th>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+      <div class="container" >
+        <div class="text-center">
+          <a class="nom-btn" href="/nominations/new" >Send Shoutout</a>
+        </div>
+      </div>
+  <div id="nom-container" class="home-page-notifications">
+  
     <% @nominations.each do |nomination| %>
-      <tr>
-        <td><%= nomination.type %></td>
-        <td><%= nomination.senderId %></td>
-        <td><%= nomination.senderName %></td>
-        <td><%= nomination.receiverId %></td>
-        <td><%= nomination.receiverName %></td>
-        <td><%= nomination.receiverImage %></td>
-        <td><%= nomination.body %></td>
-        <td><%= link_to 'Show', nomination %></td>
-        <td><%= link_to 'Edit', edit_nomination_path(nomination) %></td>
-        <td><%= link_to 'Destroy', nomination, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="nom-holder" > 
+      <div class="container mt-2">
+      <div class="row">
+        <div class="col-md-2">
+          <img src="https://img.freepik.com/free-photo/headshot-charismatic-pleasant-friendly-european-woman-short-chestnut-haircut-smiling-positive-feeling-happy-upbeat-enjoying-lifes-casually-talking-friends-amused-cheerful-standing-white-background_176420-34680.jpg" alt="Profile Picture" class="nom-image">
+        </div>
+        <div class="col-md-8">
+          <h2><%= nomination.receiverName %></h2>
+          <p><%= nomination.body %></p>
+        </div>
+        <div class="col-md-2">
+        <% if nomination.nom_type == "mvp"%>
+        <img src="https://www.creativefabrica.com/wp-content/uploads/2022/11/10/MVP-gold-medal-award-on-white-background-Graphics-45934671-1-1-580x387.jpg" alt="Profile Picture" class="nom-image">
+        <% else %>
+        <img src="https://renegade-promotions.com/wp-content/uploads/2021/05/148-1485119_shout-out-png-download-shout-out-transparent-png.png" alt="Profile Picture" class="nom-image">
+        <% end %>
+        
+        </div>
+      </div>
+    </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Nomination', new_nomination_path %>
+  </div>
+</section>
